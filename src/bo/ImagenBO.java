@@ -1,5 +1,7 @@
 package bo;
 
+import java.awt.Image;
+
 import org.opencv.core.Mat;
 
 import dao.ImagenDao;
@@ -20,12 +22,28 @@ public class ImagenBO {
 		getImagenManager().setImagenOriginal(snapshot);
 	}
 	
+	public Mat getMatOriginal(){
+		return getImagenManager().getImagenOriginal();
+	}
+	
+	public void setMatFiltrada(Mat snapshot){
+		getImagenManager().setImagenFiltrada(snapshot);
+	}
+	
+	public Mat getMatFiltrada(){
+		return getImagenManager().getImagenFiltrada();
+	}
 	
 	public ImagenDao getImagenManager() {
 		return imagenManager;
 	}
+	
 	public void setImagenManager(ImagenDao imagenManager) {
 		this.imagenManager = imagenManager;
+	}
+
+	public Image transformarMat(Mat matFiltrada) {
+		return getImagenManager().toBufferedImage(matFiltrada);
 	}
 	
 	

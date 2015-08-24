@@ -12,7 +12,7 @@ public class ImagenDao {
 	
 
 	
-	public static Image toBufferedImage(Mat m){
+	public Image toBufferedImage(Mat m){
 		int type = BufferedImage.TYPE_BYTE_GRAY;
 		
 		if(m.channels()>1){

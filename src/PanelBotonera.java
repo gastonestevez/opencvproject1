@@ -18,6 +18,7 @@ public class PanelBotonera extends JPanel{
 	private JButton botonEscalaGrises;
 	private JButton botonDeteccionDeRostros;
 	private JButton botonNuevaCaptura;
+	private JButton botonStartTimer;
 	private Handler handler;
 	
 	public PanelBotonera(Handler h){
@@ -26,6 +27,8 @@ public class PanelBotonera extends JPanel{
 		setBotonDeteccionDeRostros(new JButton("Detectar Rostro"));
 		setBotonEscalaGrises(new JButton("Escala de Grises"));
 		setBotonNuevaCaptura(new JButton("Nueva Captura"));
+		setBotonStartTimer(new JButton("Start Cap!"));
+		add(getBotonStartTimer());
 		add(getBotonNuevaCaptura());
 		add(getBotonDeteccionDeRostros());
 		add(getBotonEscalaGrises());
@@ -34,14 +37,20 @@ public class PanelBotonera extends JPanel{
 	}
 
 	private void acciones() {
+		
+		getBotonStartTimer().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				getHandler().startTimer();
+			}
+		});
+
 		getBotonDeteccionDeRostros().addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Mat matImagenOriginal = getHandler().getMenu().getPanel().getMatImage();
-				Mat matImagenFiltrada = new Filtro().detectorDeRostros(matImagenOriginal);
-				getHandler().getMenu().getPanelFiltrado().setImage(MenuPrincipal.toBufferedImage(matImagenFiltrada));
-				getHandler().getMenu().getPanelFiltrado().repaint();
+				getHandler().filtrarDeteccionDeRostros();
 			}
 		});
 		
@@ -49,10 +58,7 @@ public class PanelBotonera extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Mat matImagenOriginal = getHandler().getMenu().getPanel().getMatImage();
-				Mat matImagenFiltrada = new Filtro().escalaDeGrises(matImagenOriginal);
-				getHandler().getMenu().getPanelFiltrado().setImage(MenuPrincipal.toBufferedImage(matImagenFiltrada));				
-				getHandler().getMenu().getPanelFiltrado().repaint();
+				getHandler().filtrarEscalaDeGrises();
 			}
 		});
 		
@@ -60,8 +66,7 @@ public class PanelBotonera extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				getHandler().getMenu().getPanel().setImage(MenuPrincipal.toBufferedImage(Camara.getSnapshot()));
-				getHandler().getMenu().getPanel().repaint();
+				getHandler().capturaNuevaImagen();
 			}
 		});
 		
@@ -98,6 +103,14 @@ public class PanelBotonera extends JPanel{
 
 	public void setHandler(Handler handler) {
 		this.handler = handler;
+	}
+
+	public JButton getBotonStartTimer() {
+		return botonStartTimer;
+	}
+
+	public void setBotonStartTimer(JButton botonStartTimer) {
+		this.botonStartTimer = botonStartTimer;
 	}
 	
 	

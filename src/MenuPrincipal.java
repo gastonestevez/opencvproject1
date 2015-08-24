@@ -34,12 +34,8 @@ public class MenuPrincipal extends JFrame{
 	}
 	
 
-	public void render(Mat image){
-		Image i = toBufferedImage(image);
-		panelOriginal.setMatImage(image);
-		panelOriginal.setImage(i);
+	public void repaintAll(){
 		panelOriginal.repaint();
-		panelFiltrado.setImage(i);
 		panelFiltrado.repaint();
 		pack();
 	}

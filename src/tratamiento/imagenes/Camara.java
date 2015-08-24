@@ -29,9 +29,9 @@ public class Camara {
 			frame = new Mat();
 			while (true) {
 				if (camera.read(frame)) {
-					System.out.println("Frame Obtained");
-					System.out.println("Captured Frame Width " + frame.width()
-							+ " Height " + frame.height());
+//					System.out.println("Frame Obtained");
+//					System.out.println("Captured Frame Width " + frame.width()
+//							+ " Height " + frame.height());
 					break;
 				}
 			}

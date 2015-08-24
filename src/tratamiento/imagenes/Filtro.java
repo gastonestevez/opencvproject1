@@ -23,7 +23,7 @@ public class Filtro {
 				getClass().getResource("/xml/lbpcascade_frontalface.xml")
 						.getPath());
 		Mat cuadroDeteccion = frame;
-		Imgproc.threshold(cuadroDeteccion, cuadroDeteccion,127,255, Imgproc.THRESH_BINARY_INV);
+		//Imgproc.threshold(cuadroDeteccion, cuadroDeteccion,127,255, Imgproc.THRESH_BINARY_INV);
 		
 		MatOfRect faceDetections = new MatOfRect();
 		faceDetector.detectMultiScale(cuadroDeteccion, faceDetections);
@@ -39,8 +39,9 @@ public class Filtro {
 	}
 	
 	public Mat escalaDeGrises(Mat frame){
-		Imgproc.cvtColor(frame, frame, Imgproc.COLOR_RGB2GRAY);
-		return frame;
+		Mat nFrame = frame;
+		Imgproc.cvtColor(nFrame, nFrame, Imgproc.COLOR_RGB2GRAY);
+		return nFrame;
 	}
 
 }
