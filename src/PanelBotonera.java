@@ -42,7 +42,7 @@ public class PanelBotonera extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				getHandler().startTimer();
+				//TODO TODO TODO TODO TODO
 			}
 		});
 

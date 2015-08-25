@@ -17,7 +17,6 @@ public class Handler {
 	private MenuPrincipal menu;
 	private ImagenBO bo;
 	private Filtro f;
-	private Timer t;
 	public Handler(){
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		f = new Filtro();
@@ -27,24 +26,9 @@ public class Handler {
 		getMenu().getPanel().setImage(bo.transformarMat(bo.getMatOriginal()));
 		getMenu().repaintAll();
 		
+		new ThreadFrame(this).start();
 		
-		t = new Timer(500,new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				capturaNuevaImagen();
-				filtrarDeteccionDeRostros();
-			}
-		});
 		
-	}
-	
-	public void startTimer(){
-		t.start();
-	}
-	
-	public void stopTimer(){
-		t.stop();
 	}
 	
 	public Mat getImagenOriginal(){

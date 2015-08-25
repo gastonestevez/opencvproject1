@@ -6,6 +6,8 @@ import javax.swing.JPanel;
 
 import org.opencv.core.Mat;
 
+import tratamiento.imagenes.Camara;
+
 
 public class MyPanel extends JPanel{
 
@@ -22,7 +24,6 @@ public class MyPanel extends JPanel{
 	
 	public void setImage(Image img){
 		this.img = img;
-		
 		Dimension size = new Dimension(img.getWidth(null),img.getHeight(null));
 		setPreferredSize(size);
 		setMinimumSize(size);
@@ -38,7 +39,7 @@ public class MyPanel extends JPanel{
 	
 	@Override
 	public void paintComponent(Graphics g){
-		g.drawImage(img, 0, 0, null);
+		g.drawImage(getHandler().transformarMat(Camara.getSnapshot()), 0, 0, null);
 	}
 
 	public Handler getHandler() {
