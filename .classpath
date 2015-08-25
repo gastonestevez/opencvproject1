@@ -2,6 +2,10 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_60"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Opencv-2.4.9"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Opencv-2.4.9">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="/home/gaston/Documentos/opencv-2.4.9/build/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

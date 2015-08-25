@@ -27,14 +27,15 @@ public class Camara {
 			System.out.println("Error");
 		} else {
 			frame = new Mat();
-			while (true) {
+			//while (true) {
 				if (camera.read(frame)) {
+					
 //					System.out.println("Frame Obtained");
 //					System.out.println("Captured Frame Width " + frame.width()
 //							+ " Height " + frame.height());
-					break;
+				//	break;
 				}
-			}
+			//}
 			
 		}
 		return frame;

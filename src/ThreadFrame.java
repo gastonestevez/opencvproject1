@@ -11,9 +11,9 @@ public class ThreadFrame extends Thread{
     public void run() {
         for (;;){
             handler.getMenu().repaintAll();
-            try { 
-            	Thread.sleep(100);
-            } catch (InterruptedException e) {    }
+//            try { 
+//            	Thread.sleep(100);
+//            } catch (InterruptedException e) {    }
         }
 	}
 

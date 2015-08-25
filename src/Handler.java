@@ -65,7 +65,7 @@ public class Handler {
 
 	public void commitImagen() {
 		getMenu().getPanelFiltrado().setImage(getImagenFiltrada());
-		getMenu().repaintAll();
+		//getMenu().repaintAll();
 	}
 	
 	public void capturaNuevaImagen(){
@@ -76,6 +76,11 @@ public class Handler {
 
 	public void filtrarDeteccionDeRostros() {
 		setImagenFiltrada(f.detectorDeRostros(getImagenOriginal()));
+		commitImagen();
+	}
+	
+	public void filtrarCirculos(){
+		setImagenFiltrada(f.detectorDeCirculos(getImagenOriginal()));
 		commitImagen();
 	}
 

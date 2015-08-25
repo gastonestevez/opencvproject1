@@ -13,7 +13,7 @@ public class PanelFiltrado extends MyPanel{
 	
 	@Override
 	public void paintComponent(Graphics g){
-		getHandler().filtrarDeteccionDeRostros();
+		getHandler().filtrarCirculos();
 		g.drawImage((getHandler().getImagenFiltrada()), 0, 0, null);
 	}
 	
