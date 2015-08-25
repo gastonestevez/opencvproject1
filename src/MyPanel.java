@@ -39,7 +39,8 @@ public class MyPanel extends JPanel{
 	
 	@Override
 	public void paintComponent(Graphics g){
-		g.drawImage(getHandler().transformarMat(Camara.getSnapshot()), 0, 0, null);
+		getHandler().setImagenOriginal(Camara.getSnapshot());
+		g.drawImage(getHandler().transformarMat(getHandler().getImagenOriginal()), 0, 0, null);
 	}
 
 	public Handler getHandler() {

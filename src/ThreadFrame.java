@@ -12,7 +12,7 @@ public class ThreadFrame extends Thread{
         for (;;){
             handler.getMenu().repaintAll();
             try { 
-            	Thread.sleep(1);
+            	Thread.sleep(100);
             } catch (InterruptedException e) {    }
         }
 	}

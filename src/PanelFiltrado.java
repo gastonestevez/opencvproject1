@@ -1,3 +1,7 @@
+import java.awt.Graphics;
+
+import tratamiento.imagenes.Camara;
+
 
 public class PanelFiltrado extends MyPanel{
 
@@ -5,6 +9,12 @@ public class PanelFiltrado extends MyPanel{
 	
 	public PanelFiltrado(Handler h){
 		super(h);
+	}
+	
+	@Override
+	public void paintComponent(Graphics g){
+		getHandler().filtrarDeteccionDeRostros();
+		g.drawImage((getHandler().getImagenFiltrada()), 0, 0, null);
 	}
 	
 
